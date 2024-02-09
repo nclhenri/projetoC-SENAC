@@ -2,7 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +16,46 @@ namespace telaLogin
     {
 
         public static DataGridView dgSomaPlanos, dgContato, dgInstrutor;
+
+        //-------------------------------------FOTO----------------------------------------
+
+        //Validação da classe FTP
+        private static bool ValidarFTP()
+        {
+            if (string.IsNullOrEmpty(variaveis.enderecoServidorFtp) || string.IsNullOrEmpty(variaveis.usuarioFtp) || string.IsNullOrEmpty(variaveis.senhaFtp))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        //Converter a Imagem em Byte
+        public static byte[] GetImgToByte(string caminhoArquivoFtp)
+        {
+            WebClient ftpclient = new WebClient();
+            ftpclient.Credentials = new NetworkCredential(variaveis.usuarioFtp, variaveis.senhaFtp);
+            byte[] imageToByte = ftpclient.DownloadData(caminhoArquivoFtp);
+            return imageToByte;
+        }
+
+        //Converter a imagem de Byte para IMG
+        public static Bitmap ByteToImage(byte[] blob)
+        {
+            MemoryStream mStream = new MemoryStream();
+            byte[] pData = blob;
+            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+            Bitmap bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+            return bm;
+        }
+
+        //-------------------------------------FOTO----------------------------------------
+
+
+
         public static void CarregarQuantidadeInstrutor()
         {
             try 

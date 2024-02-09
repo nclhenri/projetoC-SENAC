@@ -178,7 +178,7 @@ namespace telaLogin
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Você não tem permissão. \n Mensagem: " + ex.Message + )
+                        MessageBox.Show("Você não tem permissão. \n Mensagem: " + ex.Message);
                     }
                 }
                 btnSalvarCadInstrutor.Enabled = true;
@@ -190,7 +190,5 @@ namespace telaLogin
                 btnSalvarCadInstrutor.Focus();
             }
         }
-
-        
     }
 }

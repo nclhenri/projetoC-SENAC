@@ -10,6 +10,12 @@ namespace telaLogin
     {
         public static int linhaSelecionada;
 
+        //FTP
+        public static string enderecoServidorFtp = "";
+        public static string usuarioFtp = "";
+        public static string senhaFtp = "";
+        //FTP
+
         //Login 
         public static string usuario, senha, nivel;
         // /Login

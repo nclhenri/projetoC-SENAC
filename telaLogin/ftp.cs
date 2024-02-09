@@ -27,10 +27,21 @@ namespace telaLogin
                     byte[] buffer = new byte[2048];
                     int bytesSent = 0;
                     int bytes = 0;
+
+                    using (Stream stream = request.GetRequestStream ())
+                    {
+                        while (bytesSent < arquivoInfo.Length )
+                        {
+                            bytes = fs.Read(buffer, 0, buffer.Length);
+                            stream.Write(buffer, 0, bytes);
+                            bytesSent += bytes;
+                        }
+                    }
                 }
             }
             catch (Exception ex) 
             {
+                throw ex;
 
             }
         }
