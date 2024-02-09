@@ -20,7 +20,9 @@ namespace telaLogin
         // /Menu
 
         //Instrutor
-        public static string nomeInstrutor, statusInstrutor;
+        public static int codInstrutor;
+        public static string nomeInstrutor, statusInstrutor, altInstrutor, cargoInstrutor, especialidadeInstrutor, emailInstrutor, senhaInstrutor, nivelInstrutor, telefoneInstutor, faceInstrutor, instaInstrutor, linkedinInstrutor, whatsInstrutor, fotoInstrutor, atFotoInstrutor, caminhoFotoInstrutor;
+        public static DateTime dataNascInstrutor, dataAdmInstrutor;
         //Instrutor
     }
 }

@@ -148,6 +148,7 @@
     <Compile Include="08-CadInstrutor.Designer.cs">
       <DependentUpon>08-CadInstrutor.cs</DependentUpon>
     </Compile>
+    <Compile Include="ftp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="variaveis.cs" />

@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -146,9 +148,46 @@ namespace telaLogin
 
         private void btnMaisCadInstrutor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            try
             {
+                OpenFileDialog ofdFoto = new OpenFileDialog();
+                ofdFoto.Multiselect = false;
+                ofdFoto.FileName = "";
+                ofdFoto.InitialDirectory = @"C:";
+                ofdFoto.Title = "Selecione uma foto:";
+                ofdFoto.Filter = "JPG ou PNG (*.jpg ou *.png)|*.jpg;*.png";
+                ofdFoto.CheckPathExists = true; //Checar se o caminho existe
+                ofdFoto.CheckFileExists = true;//Checar se o arquivo existe
+                ofdFoto.RestoreDirectory = true;//Restaurar ao diretório inicial
 
+                DialogResult dr = ofdFoto.ShowDialog();
+                pctCadInstrutor.Image = Image.FromFile(ofdFoto.FileName);
+                variaveis.fotoInstrutor = "funcionario/" + Regex.Replace(txtNomeCadInstrutor.Text, @"\s", "").ToLower() + ".png";
+
+                if (dr == DialogResult.OK)
+                {
+                    try
+                    {
+                        variaveis.atFotoInstrutor = "S";
+                        variaveis.caminhoFotoInstrutor = ofdFoto.FileName;
+
+                    }
+                    catch (SecurityException ex) 
+                    {
+                        MessageBox.Show("Erro de segurança - Fale com o Admin.\n Mensagem: " + ex.Message + "\n Detalhe: " +  ex.StackTrace);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Você não tem permissão. \n Mensagem: " + ex.Message + )
+                    }
+                }
+                btnSalvarCadInstrutor.Enabled = true;
+                btnSalvarCadInstrutor.Focus();
+            }
+            catch 
+            {
+                btnSalvarCadInstrutor.Enabled = true;
+                btnSalvarCadInstrutor.Focus();
             }
         }
 
