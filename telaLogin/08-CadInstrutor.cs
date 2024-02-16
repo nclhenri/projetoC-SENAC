@@ -146,7 +146,7 @@ namespace telaLogin
             }
         }
 
-        private void btnMaisCadInstrutor_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnMaisCadInstrutor_Click(object sender, EventArgs e)
         {
             try
             {
@@ -172,9 +172,9 @@ namespace telaLogin
                         variaveis.caminhoFotoInstrutor = ofdFoto.FileName;
 
                     }
-                    catch (SecurityException ex) 
+                    catch (SecurityException ex)
                     {
-                        MessageBox.Show("Erro de segurança - Fale com o Admin.\n Mensagem: " + ex.Message + "\n Detalhe: " +  ex.StackTrace);
+                        MessageBox.Show("Erro de segurança - Fale com o Admin.\n Mensagem: " + ex.Message + "\n Detalhe: " + ex.StackTrace);
                     }
                     catch (Exception ex)
                     {
@@ -184,10 +184,157 @@ namespace telaLogin
                 btnSalvarCadInstrutor.Enabled = true;
                 btnSalvarCadInstrutor.Focus();
             }
-            catch 
+            catch
             {
                 btnSalvarCadInstrutor.Enabled = true;
                 btnSalvarCadInstrutor.Focus();
+            }
+        }
+
+        private void btnSalvarCadInstrutor_Click(object sender, EventArgs e)
+        {
+            lblNomeCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            mskDataNascCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            txtCargoCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            comboEspecialidadeCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            txtEmailCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            txtSenhaCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            comboNivelCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            mskTelefoneCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            mkdDataAdmiCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            comboStatusCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            txtFaceCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            txtInstaCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            txtLinkeCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+            txtWhatsCadInstrutor.ForeColor = Color.FromArgb(242, 183, 5);
+
+            if (txtNomeCadInstrutor.Text.Length <= 5)
+            {
+                MessageBox.Show("O nome digitado não atende aos requisitos!");
+                txtNomeCadInstrutor.Clear();
+                txtNomeCadInstrutor.Focus();
+                lblNomeCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (mskDataNascCadInstrutor.MaskCompleted == false) 
+            {
+                MessageBox.Show("Favor colocar a data de nascimento completa!");
+                mskDataNascCadInstrutor.Clear();
+                mskDataNascCadInstrutor.Focus();
+                lblDataNascCadInstrutor.ForeColor= Color.Red;
+            }
+            else if (txtCargoCadInstrutor.Text == string.Empty)
+            {
+                MessageBox.Show("Favor preencher o cargo!");
+                txtCargoCadInstrutor.Clear();
+                txtCargoCadInstrutor.Focus();
+                lblCargoCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (comboEspecialidadeCadInstrutor.Text == "")
+            {
+                MessageBox.Show("Favor preencher a especialidade!");
+                comboEspecialidadeCadInstrutor.SelectedIndex = -1;
+                comboEspecialidadeCadInstrutor.Focus();
+                lblEspecialidadeCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (txtEmailCadInstrutor.Text == string.Empty)
+            {
+                MessageBox.Show("Favor preencher o email!");
+                txtEmailCadInstrutor.Clear();
+                txtEmailCadInstrutor.Focus();
+                lblEmailCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (txtSenhaCadInstrutor.Text == string.Empty)
+            {
+                MessageBox.Show("Favor preencher a senha!");
+                txtSenhaCadInstrutor.Clear();
+                txtSenhaCadInstrutor.Focus();
+                lblSenhaCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (comboNivelCadInstrutor.Text == "")
+            {
+                MessageBox.Show("Favor preencher o nível!");
+                comboNivelCadInstrutor.SelectedIndex = -1;
+                comboNivelCadInstrutor.Focus();
+                lblNivelCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (mskTelefoneCadInstrutor.MaskCompleted == false)
+            {
+                MessageBox.Show("Favor preencher o telefone!");
+                mskTelefoneCadInstrutor.Clear();
+                mskTelefoneCadInstrutor.Focus();
+                lblTelefoneCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (mkdDataAdmiCadInstrutor.MaskCompleted == false)
+            {
+                MessageBox.Show("Favor preencher a data de admissão!");
+                mkdDataAdmiCadInstrutor.Clear();
+                mkdDataAdmiCadInstrutor.Focus();
+                lblDataAdmiCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (comboStatusCadInstrutor.Text == "")
+            {
+                MessageBox.Show("Favor preencher o status!");
+                comboStatusCadInstrutor.SelectedIndex = -1;
+                comboStatusCadInstrutor.Focus();
+                lblStatusCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (txtFaceCadInstrutor.Text == string.Empty)
+            {
+                MessageBox.Show("Favor preencher o link do Facebook!");
+                txtFaceCadInstrutor.Clear();
+                txtFaceCadInstrutor.Focus();
+                lblFaceCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (txtInstaCadInstrutor.Text == string.Empty)
+            {
+                MessageBox.Show("Favor preencher o link do Instagram!");
+                txtInstaCadInstrutor.Clear();
+                txtInstaCadInstrutor.Focus();
+                lblInstaCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (txtLinkeCadInstrutor.Text == string.Empty)
+            {
+                MessageBox.Show("Favor preencher o link do Linkedin!");
+                txtLinkeCadInstrutor.Clear();
+                txtLinkeCadInstrutor.Focus();
+                lblLinkeCadInstrutor.ForeColor = Color.Red;
+            }
+            else if (txtWhatsCadInstrutor.Text == string.Empty)
+            {
+                MessageBox.Show("Favor preencher o link do WhatsApp!");
+                txtWhatsCadInstrutor.Clear();
+                txtWhatsCadInstrutor.Focus();
+                lblWhatsCadInstrutor.ForeColor = Color.Red;
+            }
+            else
+            {
+                variaveis.nomeInstrutor = txtNomeCadInstrutor.Text;
+                variaveis.altInstrutor = Regex.Replace(txtNomeCadInstrutor.Text, @"\s", "").ToLower();
+                variaveis.dataNascInstrutor = DateTime.Parse(mskDataNascCadInstrutor.Text);
+                variaveis.cargoInstrutor = txtCargoCadInstrutor.Text;
+                variaveis.especialidadeInstrutor = comboEspecialidadeCadInstrutor.Text;
+                variaveis.emailInstrutor = txtEmailCadInstrutor.Text;
+                variaveis.senhaInstrutor = txtSenhaCadInstrutor.Text;
+                variaveis.nivelInstrutor = comboNivelCadInstrutor.Text;
+                variaveis.telefoneInstutor = mskTelefoneCadInstrutor.Text;
+                variaveis.dataAdmInstrutor = DateTime.Parse(mkdDataAdmiCadInstrutor.Text);
+                variaveis.statusInstrutor = comboStatusCadInstrutor.Text;
+                variaveis.faceInstrutor = txtFaceCadInstrutor.Text;
+                variaveis.instaInstrutor = txtInstaCadInstrutor.Text;
+                variaveis.linkedinInstrutor = txtLinkeCadInstrutor.Text;
+                variaveis.whatsInstrutor = txtWhatsCadInstrutor.Text;
+
+                if (variaveis.funcao == "CADASTRAR")
+                {
+                    banco.InserirFuncionario();
+                    btnSalvarCadInstrutor.Enabled = false;
+                    btnLimparCadInstrutor.PerformClick();
+                }
+                else if (variaveis.funcao == "ALTERAR") 
+                {
+
+                }
+                btnLimparCadInstrutor.Enabled = false;
             }
         }
     }

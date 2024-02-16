@@ -57,6 +57,8 @@ namespace telaLogin
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            variaveis.funcao = "CADASTRAR";
+
             new frmCadInstrutor().Show();
             Hide();
         }

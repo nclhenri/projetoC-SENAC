@@ -8,12 +8,14 @@ namespace telaLogin
 {
     public static class variaveis
     {
+        //Geral
         public static int linhaSelecionada;
-
+        public static string funcao;
+        //Geral
         //FTP
-        public static string enderecoServidorFtp = "";
-        public static string usuarioFtp = "";
-        public static string senhaFtp = "";
+        public static string enderecoServidorFtp = "ftp://127.0.0.1/img";
+        public static string usuarioFtp = "vivabem";
+        public static string senhaFtp = "123";
         //FTP
 
         //Login 

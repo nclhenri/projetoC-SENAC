@@ -43,7 +43,7 @@
             this.txtLinkeCadInstrutor = new System.Windows.Forms.TextBox();
             this.lblLinkeCadInstrutor = new System.Windows.Forms.Label();
             this.txtFaceCadInstrutor = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblFaceCadInstrutor = new System.Windows.Forms.Label();
             this.comboStatusCadInstrutor = new System.Windows.Forms.ComboBox();
             this.lblStatusCadInstrutor = new System.Windows.Forms.Label();
             this.lblDataAdmiCadInstrutor = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@
             this.pnlCadInstrutor.Controls.Add(this.txtLinkeCadInstrutor);
             this.pnlCadInstrutor.Controls.Add(this.lblLinkeCadInstrutor);
             this.pnlCadInstrutor.Controls.Add(this.txtFaceCadInstrutor);
-            this.pnlCadInstrutor.Controls.Add(this.label2);
+            this.pnlCadInstrutor.Controls.Add(this.lblFaceCadInstrutor);
             this.pnlCadInstrutor.Controls.Add(this.comboStatusCadInstrutor);
             this.pnlCadInstrutor.Controls.Add(this.lblStatusCadInstrutor);
             this.pnlCadInstrutor.Controls.Add(this.lblDataAdmiCadInstrutor);
@@ -152,6 +152,7 @@
             this.btnSalvarCadInstrutor.TabIndex = 34;
             this.btnSalvarCadInstrutor.Text = "CADASTRAR";
             this.btnSalvarCadInstrutor.UseVisualStyleBackColor = false;
+            this.btnSalvarCadInstrutor.Click += new System.EventHandler(this.btnSalvarCadInstrutor_Click);
             // 
             // btnLimparCadInstrutor
             // 
@@ -176,7 +177,7 @@
             this.btnMaisCadInstrutor.TabIndex = 32;
             this.btnMaisCadInstrutor.Text = "+";
             this.btnMaisCadInstrutor.UseVisualStyleBackColor = false;
-            this.btnMaisCadInstrutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnMaisCadInstrutor_KeyPress);
+            this.btnMaisCadInstrutor.Click += new System.EventHandler(this.btnMaisCadInstrutor_Click);
             // 
             // lblFotoCadInstrutor
             // 
@@ -194,6 +195,7 @@
             this.pctCadInstrutor.Location = new System.Drawing.Point(769, 368);
             this.pctCadInstrutor.Name = "pctCadInstrutor";
             this.pctCadInstrutor.Size = new System.Drawing.Size(270, 138);
+            this.pctCadInstrutor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctCadInstrutor.TabIndex = 30;
             this.pctCadInstrutor.TabStop = false;
             // 
@@ -274,16 +276,16 @@
             this.txtFaceCadInstrutor.TabIndex = 23;
             this.txtFaceCadInstrutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFaceCadInstrutor_KeyPress);
             // 
-            // label2
+            // lblFaceCadInstrutor
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Britannic Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(183)))), ((int)(((byte)(5)))));
-            this.label2.Location = new System.Drawing.Point(256, 400);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 23);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "FACEBOOK:";
+            this.lblFaceCadInstrutor.AutoSize = true;
+            this.lblFaceCadInstrutor.Font = new System.Drawing.Font("Britannic Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFaceCadInstrutor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(183)))), ((int)(((byte)(5)))));
+            this.lblFaceCadInstrutor.Location = new System.Drawing.Point(256, 400);
+            this.lblFaceCadInstrutor.Name = "lblFaceCadInstrutor";
+            this.lblFaceCadInstrutor.Size = new System.Drawing.Size(115, 23);
+            this.lblFaceCadInstrutor.TabIndex = 22;
+            this.lblFaceCadInstrutor.Text = "FACEBOOK:";
             // 
             // comboStatusCadInstrutor
             // 
@@ -563,7 +565,7 @@
         private System.Windows.Forms.TextBox txtLinkeCadInstrutor;
         private System.Windows.Forms.Label lblLinkeCadInstrutor;
         private System.Windows.Forms.TextBox txtFaceCadInstrutor;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblFaceCadInstrutor;
         private System.Windows.Forms.ComboBox comboStatusCadInstrutor;
         private System.Windows.Forms.Button btnSalvarCadInstrutor;
         private System.Windows.Forms.Button btnLimparCadInstrutor;

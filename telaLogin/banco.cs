@@ -374,5 +374,58 @@ namespace telaLogin
                 MessageBox.Show("Erro ao carregar os instrutores!\n\n" + erro);
             }
         }
+
+        public static void InserirFuncionario() 
+        {
+            try
+            {
+                conexao.Conectar();
+                string inserir = "INSERT INTO tblfuncionarios(nomeFuncionario, altFuncionario, dataNascFuncionario, cargoFuncionario, especialidadeFuncionario, emailFuncionario, senhaFuncionario, nivelFuncionario, telefoneFuncionario, dataAdmissaoFuncionario, statusFuncionario,linkFaceFuncionario, linkInstaFuncionario, linkLinkedinFuncionario, linkWhatsFuncionario, fotoFuncionario) VALUES (@nome, @alt, @dataNasc, @cargo, @especialidade, @email, @senha, @nivel, @telefone, @dataAdmissao, @status, @linkFace, @linkInsta, @linkLinkedin, @linkWhats, @foto)";
+                MySqlCommand cmd = new MySqlCommand(inserir, conexao.conn);
+                //parâmetros
+                cmd.Parameters.AddWithValue("@nome", variaveis.nomeInstrutor);
+                cmd.Parameters.AddWithValue("@alt", variaveis.altInstrutor);
+                cmd.Parameters.AddWithValue("@dataNasc", variaveis.dataNascInstrutor);
+                cmd.Parameters.AddWithValue("@cargo", variaveis.cargoInstrutor);
+                cmd.Parameters.AddWithValue("@especialidade", variaveis.especialidadeInstrutor);
+                cmd.Parameters.AddWithValue("@email", variaveis.emailInstrutor);
+                cmd.Parameters.AddWithValue("@senha", variaveis.senhaInstrutor);
+                cmd.Parameters.AddWithValue("@nivel", variaveis.nivelInstrutor);
+                cmd.Parameters.AddWithValue("@telefone", variaveis.telefoneInstutor);
+                cmd.Parameters.AddWithValue("@dataAdmissao", variaveis.dataAdmInstrutor);
+                cmd.Parameters.AddWithValue("@status", variaveis.statusInstrutor);
+                cmd.Parameters.AddWithValue("@linkFace", variaveis.faceInstrutor);
+                cmd.Parameters.AddWithValue("@linkInsta", variaveis.faceInstrutor);
+                cmd.Parameters.AddWithValue("@linkLinkedin", variaveis.linkedinInstrutor);
+                cmd.Parameters.AddWithValue("@linkWhats", variaveis.whatsInstrutor);
+                cmd.Parameters.AddWithValue("@foto", variaveis.fotoInstrutor);
+                //fim parâmetros
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Funcionário cadastrado com sucesso!", "CADASTRO FUNCIONÁRIO");
+                conexao.Desconectar();
+
+                //Inserir a foto na pasta ftp
+                if (ValidarFTP())
+                {
+                    if (!string.IsNullOrEmpty(variaveis.fotoInstrutor))
+                    {
+                        string urlEnviarArquivo = variaveis.enderecoServidorFtp + "funcionario/" + Path.GetFileName(variaveis.fotoInstrutor); // nome da pasta aonde ira ser armazenado as fotos (de acordo com o projeto (funcionario))
+                        try
+                        {
+                            ftp.EnviarArquivoFtp(variaveis.caminhoFotoInstrutor, urlEnviarArquivo, variaveis.usuarioFtp, variaveis.senhaFtp);
+                        }
+                        catch 
+                        {
+                            MessageBox.Show("Foto não selecionada ou existente.", "FOTO");
+                        }
+                    }
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao cadastrar o Funcionário!\n\n" + erro.Message, "ERRO");
+            }
+        }
     }
 }
