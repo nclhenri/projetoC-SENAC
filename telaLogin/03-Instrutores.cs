@@ -62,5 +62,27 @@ namespace telaLogin
             new frmCadInstrutor().Show();
             Hide();
         }
+
+        private void dgvInstrutor_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            variaveis.linhaSelecionada = int.Parse(e.RowIndex.ToString());
+            if (variaveis.linhaSelecionada >= 0)
+            {
+                variaveis.codInstrutor = Convert.ToInt32(dgvInstrutor[0, variaveis.linhaSelecionada].Value);
+            }
+        }
+
+        private void dgvInstrutor_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dgvInstrutor.Sort(dgvInstrutor.Columns[1], ListSortDirection.Ascending);
+            dgvInstrutor.ClearSelection();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            variaveis.funcao = "ALTERAR";
+            new frmCadInstrutor().Show();
+            Hide() ;
+        }
     }
 }

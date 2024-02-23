@@ -432,7 +432,7 @@
             this.lblUsuario.TabIndex = 12;
             this.lblUsuario.Text = "Usuário";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
+            
             // 
             // timer1
             // 

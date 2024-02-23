@@ -427,5 +427,115 @@ namespace telaLogin
                 MessageBox.Show("Erro ao cadastrar o Funcionário!\n\n" + erro.Message, "ERRO");
             }
         }
+
+        public static void CarregarDadosFuncionarios()
+        {
+            try
+            {
+                conexao.Conectar();
+                string selecionar = "SELECT * FROM tblfuncionarios WHERE idFuncionario = @codigo;";
+                MySqlCommand cmd = new MySqlCommand(selecionar, conexao.conn);
+                cmd.Parameters.AddWithValue("@codigo", variaveis.codInstrutor);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    variaveis.nomeInstrutor = reader.GetString(1);
+                    variaveis.dataNascInstrutor = reader.GetDateTime(3);
+                    variaveis.cargoInstrutor = reader.GetString(4);
+                    variaveis.especialidadeInstrutor = reader.GetString(5);
+                    variaveis.emailInstrutor = reader.GetString(6);
+                    variaveis.senhaInstrutor = reader.GetString(7);
+                    variaveis.nivelInstrutor = reader.GetString(8);
+                    variaveis.telefoneInstutor = reader.GetString(9);
+                    variaveis.dataAdmInstrutor = reader.GetDateTime(10);
+                    variaveis.statusInstrutor = reader.GetString(11);
+                    variaveis.fotoInstrutor = reader.GetString(12);
+                    variaveis.fotoInstrutor = variaveis.fotoInstrutor.Remove(0, 12);
+                    variaveis.faceInstrutor = reader.GetString(13);
+                    variaveis.instaInstrutor = reader.GetString(14);
+                    variaveis.linkedinInstrutor = reader.GetString(15);
+                    variaveis.whatsInstrutor = reader.GetString(16);
+                }
+                conexao.Desconectar();
+            }
+            catch (Exception erro) 
+            {
+                MessageBox.Show("Erro ao carregar os dados do funcionário!! \n\n" + erro);
+            }
+        }
+
+        public static void AlterarFuncionario()
+        {
+            try
+            {
+                conexao.Conectar();
+                string inserir = "UPDATE tblfuncionarios SET nomeFuncionario=@nome,altFuncionario=@alt,dataNascFuncionario=@dataNasc,cargoFuncionario=@cargo,especialidadeFuncionario=@especialidade,emailFuncionario=@email,senhaFuncionario=@senha,nivelFuncionario=@nivel,telefoneFuncionario=@telefone,dataAdmissaoFuncionario=@dataAdmissao,statusFuncionario=@status,linkFaceFuncionario=@linkFace,linkInstaFuncionario=@linkInsta,linkLinkedinFuncionario=@linkLinkedin,linkWhatsFuncionario=@linkWhats WHERE idFuncionario=@codigo";
+                MySqlCommand cmd = new MySqlCommand(inserir, conexao.conn);
+                //parâmetros
+                cmd.Parameters.AddWithValue("@nome", variaveis.nomeInstrutor);
+                cmd.Parameters.AddWithValue("@alt", variaveis.altInstrutor);
+                cmd.Parameters.AddWithValue("@dataNasc", variaveis.dataNascInstrutor);
+                cmd.Parameters.AddWithValue("@cargo", variaveis.cargoInstrutor);
+                cmd.Parameters.AddWithValue("@especialidade", variaveis.especialidadeInstrutor);
+                cmd.Parameters.AddWithValue("@email", variaveis.emailInstrutor);
+                cmd.Parameters.AddWithValue("@senha", variaveis.senhaInstrutor);
+                cmd.Parameters.AddWithValue("@nivel", variaveis.nivelInstrutor);
+                cmd.Parameters.AddWithValue("@telefone", variaveis.telefoneInstutor);
+                cmd.Parameters.AddWithValue("@dataAdmissao", variaveis.dataAdmInstrutor);
+                cmd.Parameters.AddWithValue("@status", variaveis.statusInstrutor);
+                cmd.Parameters.AddWithValue("@linkFace", variaveis.faceInstrutor);
+                cmd.Parameters.AddWithValue("@linkInsta", variaveis.faceInstrutor);
+                cmd.Parameters.AddWithValue("@linkLinkedin", variaveis.linkedinInstrutor);
+                cmd.Parameters.AddWithValue("@linkWhats", variaveis.whatsInstrutor);
+                cmd.Parameters.AddWithValue("@codigo", variaveis.codInstrutor);
+                //fim parâmetros
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Funcionário alterado com sucesso!", "ALTERAÇÃO DO FUNCIONÁRIO");
+                conexao.Desconectar();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao alterar o Funcionário!\n\n" + erro.Message, "ERRO");
+            }
+        }
+
+        public static void AlterarFotoFuncionario()
+        {
+
+            try
+            {
+                conexao.Conectar();
+                string inserir = "UPDATE tblfuncionarios SET fotoFuncionario = @foto WHERE idFuncionario=@codigo";
+                MySqlCommand cmd = new MySqlCommand(inserir, conexao.conn);
+                //parâmetros
+                cmd.Parameters.AddWithValue("@foto", variaveis.fotoInstrutor);
+                cmd.Parameters.AddWithValue("@codigo", variaveis.codInstrutor);
+                //fim parâmetros
+
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+
+                if (ValidarFTP())
+                {
+                    if (!string.IsNullOrEmpty(variaveis.fotoInstrutor))
+                    {
+                        string urlEnviarArquivo = variaveis.enderecoServidorFtp + "funcionario/" + Path.GetFileName(variaveis.fotoInstrutor); // nome da pasta aonde ira ser armazenado as fotos (de acordo com o projeto (funcionario))
+                        try
+                        {
+                            ftp.EnviarArquivoFtp(variaveis.caminhoFotoInstrutor, urlEnviarArquivo, variaveis.usuarioFtp, variaveis.senhaFtp);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Foto não selecionada ou existente.", "FOTO");
+                        }
+                    }
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao alterar a foto do Funcionário!\n\n" + erro.Message, "ERRO");
+            }
+        }
     }
 }

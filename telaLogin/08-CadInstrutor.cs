@@ -337,5 +337,50 @@ namespace telaLogin
                 btnLimparCadInstrutor.Enabled = false;
             }
         }
+
+        private void frmCadInstrutor_Load(object sender, EventArgs e)
+        {
+            if(variaveis.funcao == "ALTERAR")
+            {
+                lblCadastrarInstrutor.Text = "A\nL\nT\nE\nR\nA\nR";
+                banco.CarregarDadosFuncionarios();
+                txtNomeCadInstrutor.Text = variaveis.nomeInstrutor;
+                mskDataNascCadInstrutor.Text = variaveis.dataNascInstrutor.ToString();
+                txtCargoCadInstrutor.Text = variaveis.cargoInstrutor;
+                comboEspecialidadeCadInstrutor.Text = variaveis.especialidadeInstrutor;
+                txtEmailCadInstrutor.Text = variaveis.emailInstrutor;
+                txtSenhaCadInstrutor.Text = variaveis.senhaInstrutor;
+                comboNivelCadInstrutor.Text = variaveis.nivelInstrutor;
+                mskTelefoneCadInstrutor.Text = variaveis.telefoneInstutor;
+                mkdDataAdmiCadInstrutor.Text = variaveis.dataAdmInstrutor.ToString();
+                comboStatusCadInstrutor.Text = variaveis.statusInstrutor;
+                pctCadInstrutor.Image = banco.ByteToImage(banco.GetImgToByte(variaveis.enderecoServidorFtp + "funcionario/" + variaveis.fotoInstrutor));
+                txtFaceCadInstrutor.Text = variaveis.faceInstrutor;
+                txtInstaCadInstrutor.Text = variaveis.instaInstrutor;
+                txtLinkeCadInstrutor.Text = variaveis.linkedinInstrutor;
+                txtWhatsCadInstrutor.Text = variaveis.whatsInstrutor;
+                txtNomeCadInstrutor.Enabled = true;
+                mskDataNascCadInstrutor.Enabled = true;
+                txtCargoCadInstrutor.Enabled = true;
+                comboEspecialidadeCadInstrutor.Enabled = true;
+                txtEmailCadInstrutor.Enabled = true;
+                txtSenhaCadInstrutor.Enabled = true;
+                comboNivelCadInstrutor.Enabled = true;
+                mskTelefoneCadInstrutor.Enabled = true;
+                mkdDataAdmiCadInstrutor.Enabled = true;
+                comboStatusCadInstrutor.Enabled = true;
+                btnMaisCadInstrutor.Enabled = true;
+                txtFaceCadInstrutor.Enabled = true;
+                txtInstaCadInstrutor.Enabled = true;
+                txtLinkeCadInstrutor.Enabled = true;
+                txtWhatsCadInstrutor.Enabled = true;
+                btnSalvarCadInstrutor.Enabled = true;
+                btnLimparCadInstrutor.Enabled = false;
+
+
+
+
+            }
+        }
     }
 }

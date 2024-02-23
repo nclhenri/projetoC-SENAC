@@ -93,6 +93,7 @@
             this.btnAlterar.TabIndex = 9;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCadastrar
             // 
@@ -127,9 +128,13 @@
             this.dgvInstrutor.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInstrutor.Location = new System.Drawing.Point(268, 135);
             this.dgvInstrutor.Name = "dgvInstrutor";
+            this.dgvInstrutor.ReadOnly = true;
             this.dgvInstrutor.RowHeadersVisible = false;
+            this.dgvInstrutor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInstrutor.Size = new System.Drawing.Size(785, 376);
             this.dgvInstrutor.TabIndex = 7;
+            this.dgvInstrutor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInstrutor_CellClick);
+            this.dgvInstrutor.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvInstrutor_ColumnHeaderMouseClick);
             // 
             // pctFechar
             // 

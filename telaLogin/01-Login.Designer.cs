@@ -140,6 +140,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(289, 27);
             this.txtEmail.TabIndex = 1;
+            
             // 
             // pctEmail
             // 

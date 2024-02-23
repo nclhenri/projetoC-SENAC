@@ -64,6 +64,5 @@ namespace telaLogin
             Hide();
         }
 
-        
     }
 }

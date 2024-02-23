@@ -13,7 +13,7 @@ namespace telaLogin
         public static string funcao;
         //Geral
         //FTP
-        public static string enderecoServidorFtp = "ftp://127.0.0.1/img";
+        public static string enderecoServidorFtp = "ftp://127.0.0.1/img/";
         public static string usuarioFtp = "vivabem";
         public static string senhaFtp = "123";
         //FTP

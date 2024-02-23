@@ -204,9 +204,8 @@
             this.txtWhatsCadInstrutor.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtWhatsCadInstrutor.Enabled = false;
             this.txtWhatsCadInstrutor.Location = new System.Drawing.Point(494, 492);
-            this.txtWhatsCadInstrutor.Multiline = true;
             this.txtWhatsCadInstrutor.Name = "txtWhatsCadInstrutor";
-            this.txtWhatsCadInstrutor.Size = new System.Drawing.Size(228, 28);
+            this.txtWhatsCadInstrutor.Size = new System.Drawing.Size(228, 20);
             this.txtWhatsCadInstrutor.TabIndex = 29;
             this.txtWhatsCadInstrutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWhatsCadInstrutor_KeyPress);
             // 
@@ -215,9 +214,8 @@
             this.txtInstaCadInstrutor.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtInstaCadInstrutor.Enabled = false;
             this.txtInstaCadInstrutor.Location = new System.Drawing.Point(494, 426);
-            this.txtInstaCadInstrutor.Multiline = true;
             this.txtInstaCadInstrutor.Name = "txtInstaCadInstrutor";
-            this.txtInstaCadInstrutor.Size = new System.Drawing.Size(228, 28);
+            this.txtInstaCadInstrutor.Size = new System.Drawing.Size(228, 20);
             this.txtInstaCadInstrutor.TabIndex = 28;
             this.txtInstaCadInstrutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInstaCadInstrutor_KeyPress);
             // 
@@ -248,9 +246,8 @@
             this.txtLinkeCadInstrutor.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtLinkeCadInstrutor.Enabled = false;
             this.txtLinkeCadInstrutor.Location = new System.Drawing.Point(260, 492);
-            this.txtLinkeCadInstrutor.Multiline = true;
             this.txtLinkeCadInstrutor.Name = "txtLinkeCadInstrutor";
-            this.txtLinkeCadInstrutor.Size = new System.Drawing.Size(228, 28);
+            this.txtLinkeCadInstrutor.Size = new System.Drawing.Size(228, 20);
             this.txtLinkeCadInstrutor.TabIndex = 25;
             this.txtLinkeCadInstrutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLinkeCadInstrutor_KeyPress);
             // 
@@ -270,9 +267,8 @@
             this.txtFaceCadInstrutor.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtFaceCadInstrutor.Enabled = false;
             this.txtFaceCadInstrutor.Location = new System.Drawing.Point(260, 426);
-            this.txtFaceCadInstrutor.Multiline = true;
             this.txtFaceCadInstrutor.Name = "txtFaceCadInstrutor";
-            this.txtFaceCadInstrutor.Size = new System.Drawing.Size(228, 28);
+            this.txtFaceCadInstrutor.Size = new System.Drawing.Size(228, 20);
             this.txtFaceCadInstrutor.TabIndex = 23;
             this.txtFaceCadInstrutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFaceCadInstrutor_KeyPress);
             // 
@@ -362,9 +358,8 @@
             // 
             this.txtSenhaCadInstrutor.Enabled = false;
             this.txtSenhaCadInstrutor.Location = new System.Drawing.Point(769, 218);
-            this.txtSenhaCadInstrutor.Multiline = true;
             this.txtSenhaCadInstrutor.Name = "txtSenhaCadInstrutor";
-            this.txtSenhaCadInstrutor.Size = new System.Drawing.Size(270, 28);
+            this.txtSenhaCadInstrutor.Size = new System.Drawing.Size(270, 20);
             this.txtSenhaCadInstrutor.TabIndex = 13;
             this.txtSenhaCadInstrutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenhaCadInstrutor_KeyPress);
             // 
@@ -384,9 +379,8 @@
             this.txtEmailCadInstrutor.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtEmailCadInstrutor.Enabled = false;
             this.txtEmailCadInstrutor.Location = new System.Drawing.Point(260, 208);
-            this.txtEmailCadInstrutor.Multiline = true;
             this.txtEmailCadInstrutor.Name = "txtEmailCadInstrutor";
-            this.txtEmailCadInstrutor.Size = new System.Drawing.Size(462, 28);
+            this.txtEmailCadInstrutor.Size = new System.Drawing.Size(462, 20);
             this.txtEmailCadInstrutor.TabIndex = 11;
             this.txtEmailCadInstrutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmailCadInstrutor_KeyPress);
             // 
@@ -435,9 +429,8 @@
             this.txtCargoCadInstrutor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCargoCadInstrutor.Enabled = false;
             this.txtCargoCadInstrutor.Location = new System.Drawing.Point(484, 135);
-            this.txtCargoCadInstrutor.Multiline = true;
             this.txtCargoCadInstrutor.Name = "txtCargoCadInstrutor";
-            this.txtCargoCadInstrutor.Size = new System.Drawing.Size(238, 28);
+            this.txtCargoCadInstrutor.Size = new System.Drawing.Size(238, 20);
             this.txtCargoCadInstrutor.TabIndex = 7;
             this.txtCargoCadInstrutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCargoCadInstrutor_KeyPress);
             // 
@@ -478,10 +471,10 @@
             // txtNomeCadInstrutor
             // 
             this.txtNomeCadInstrutor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNomeCadInstrutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeCadInstrutor.Location = new System.Drawing.Point(260, 55);
-            this.txtNomeCadInstrutor.Multiline = true;
             this.txtNomeCadInstrutor.Name = "txtNomeCadInstrutor";
-            this.txtNomeCadInstrutor.Size = new System.Drawing.Size(779, 28);
+            this.txtNomeCadInstrutor.Size = new System.Drawing.Size(779, 26);
             this.txtNomeCadInstrutor.TabIndex = 3;
             this.txtNomeCadInstrutor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeCadInstrutor_KeyPress);
             // 
@@ -527,7 +520,9 @@
             this.Controls.Add(this.pnlCadInstrutor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCadInstrutor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.frmCadInstrutor_Load);
             this.pnlCadInstrutor.ResumeLayout(false);
             this.pnlCadInstrutor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctCadInstrutor)).EndInit();
