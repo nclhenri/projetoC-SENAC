@@ -162,7 +162,7 @@ namespace telaLogin
 
                 DialogResult dr = ofdFoto.ShowDialog();
                 pctCadInstrutor.Image = Image.FromFile(ofdFoto.FileName);
-                variaveis.fotoInstrutor = "funcionario/" + Regex.Replace(txtNomeCadInstrutor.Text, @"\s", "").ToLower() + ".png";
+                variaveis.fotoInstrutor = "funcionario/" + Regex.Replace(txtNomeCadInstrutor.Text, @"\s", "").ToLower() + Regex.Replace(txtCargoCadInstrutor.Text, @"\s", "").ToLower() + ".png";
 
                 if (dr == DialogResult.OK)
                 {
@@ -332,6 +332,11 @@ namespace telaLogin
                 }
                 else if (variaveis.funcao == "ALTERAR") 
                 {
+                    banco.AlterarFuncionario();
+                    if (variaveis.atFotoInstrutor == "S")
+                    {
+                        banco.AlterarFotoFuncionario();
+                    }
 
                 }
                 btnLimparCadInstrutor.Enabled = false;

@@ -35,10 +35,20 @@ namespace telaLogin
         //Converter a Imagem em Byte
         public static byte[] GetImgToByte(string caminhoArquivoFtp)
         {
+            try
+            { 
             WebClient ftpclient = new WebClient();
             ftpclient.Credentials = new NetworkCredential(variaveis.usuarioFtp, variaveis.senhaFtp);
             byte[] imageToByte = ftpclient.DownloadData(caminhoArquivoFtp);
             return imageToByte;
+            }
+            catch
+            {
+                WebClient ftpclient = new WebClient();
+                ftpclient.Credentials = new NetworkCredential(variaveis.usuarioFtp, variaveis.senhaFtp);
+                byte[] imageToByte = ftpclient.DownloadData(variaveis.enderecoServidorFtp + @"\funcionario\semfoto.png");
+                return imageToByte;
+            }
         }
 
         //Converter a imagem de Byte para IMG
@@ -535,6 +545,29 @@ namespace telaLogin
             catch (Exception erro)
             {
                 MessageBox.Show("Erro ao alterar a foto do Funcionário!\n\n" + erro.Message, "ERRO");
+            }
+        }
+
+        public static void DesativarFuncionario()
+        {
+            try
+            {
+                conexao.Conectar();
+                string inserir = "UPDATE tblfuncionarios SET statusFuncionario = @status WHERE idFuncionario=@codigo";
+                MySqlCommand cmd = new MySqlCommand(inserir, conexao.conn);
+                //parâmetros
+                cmd.Parameters.AddWithValue("@status", variaveis.statusInstrutor);
+                cmd.Parameters.AddWithValue("@codigo", variaveis.codInstrutor);
+
+                //fim parâmetros
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Funcionário desativado com sucesso!", "EXCLUIR FUNCIONÁRIO");
+                conexao.Desconectar();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao desativas o Funcionário!\n\n" + erro.Message, "ERRO");
             }
         }
     }

@@ -84,5 +84,23 @@ namespace telaLogin
             new frmCadInstrutor().Show();
             Hide() ;
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (variaveis.linhaSelecionada >= 0)
+            {
+                var resposta = MessageBox.Show("Deseja realmente excluir? Essa ação não poderá ser desfeita!", "EXCLUIR", MessageBoxButtons.YesNo);
+                if (resposta == DialogResult.Yes)
+                {
+                    banco.DesativarFuncionario();
+                    banco.CarregarInstrutor();
+                    dgvInstrutor.ClearSelection() ;
+                }
+                else
+                {
+                    dgvInstrutor.ClearSelection();
+                }
+            }
+        }
     }
 }
