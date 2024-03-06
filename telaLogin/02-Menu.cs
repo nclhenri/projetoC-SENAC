@@ -104,8 +104,15 @@ namespace telaLogin
 
         private void btnInstrutor_Click(object sender, EventArgs e)
         {
-            new frmInstrutor().Show();
-            Hide();
+            if (variaveis.nivel == "NIVEL 1")
+            {
+                new frmInstrutor().Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("Você não tem permissão para acessar essa tela.");
+            }
         }
     }
 }
